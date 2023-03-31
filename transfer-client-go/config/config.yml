@@ -1,0 +1,28 @@
+chain_client:
+  chain_id: chain1
+  org_id: lh-org1.chainmaker.org
+  user_key_file_path: config/admin1.tls.key
+  user_crt_file_path: config/admin1.tls.crt
+  user_sign_key_file_path: config/admin1.sign.key
+  user_sign_crt_file_path: config/admin1.sign.crt
+  retry_limit: 10
+  retry_interval: 500
+
+  nodes:
+    - # 节点地址，格式为：IP:端口:连接数
+      node_addr: "10.0.4.8:12301"
+      # 节点连接数
+      conn_cnt: 9
+      # RPC连接是否启用双向TLS认证
+      enable_tls: true
+      trust_root_paths:
+        - "ca/"
+      # TLS hostname
+      tls_host_name: "chainmaker.org"
+
+
+  rpc_client:
+    max_receive_message_size: 1600
+    max_send_message_size: 1600
+    send_tx_timeout: 60
+    get_tx_timeout: 60
